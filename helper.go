@@ -20,6 +20,9 @@ func parseConfig() {
 	viper.SetConfigType(CONF_DEFAULT_FILE_TYPE)
 	viper.AddConfigPath(CONF_DEFAULT_DIR)
 
+	viper.SetDefault(BLOB_HOST, BLOB_API_DEFAULT_HOST)
+	viper.SetDefault(BLOB_PORT, BLOB_API_DEFAULT_PORT)
+
 	err := viper.ReadInConfig()
 
 	if err != nil {

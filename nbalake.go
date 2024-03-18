@@ -25,8 +25,8 @@ const (
 )
 
 const (
-	BUCKET_RAW									= "%s.nba.raw"
-	BUCKET_ANALYTICS						= "%s.nba.analytics"
+	BUCKET_RAW									= "nba.raw"
+	BUCKET_ANALYTICS						= "nba.analytics"
 )
 
 const (

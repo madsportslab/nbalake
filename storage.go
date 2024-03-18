@@ -57,19 +57,36 @@ func ConnectionNew() {
 
 
 func BucketName(y string, id string) string {
-	return fmt.Sprintf("%s.nba.%s", y, id)
+	return fmt.Sprintf("%s.%s", y, id)
 } // BucketName
 
 
-func BlobList(b string) <-chan minio.ObjectInfo {
+func Exists(b string, k string) bool {
+  
+	_, err := blobs.GetObject(ctx, b, k,
+		minio.GetObjectOptions{})
+
+	if err != nil {
+		
+		log.Println(err)
+		return false
+
+	} else {
+		return true
+	}
+
+} // Exists
+
+
+func List(b string) <-chan minio.ObjectInfo {
 	
 	return blobs.ListObjects(ctx, b,
 		minio.ListObjectsOptions{})
 
-} // BlobList
+} // List
 
 
-func BlobPut(b string, k string, r []byte) {
+func Put(b string, k string, r []byte) {
 
 	buf := bytes.NewReader(r)
 
@@ -80,10 +97,10 @@ func BlobPut(b string, k string, r []byte) {
 		log.Println(err)
 	}
 
-} // BlobPut
+} // Put
 
 
-func BlobPutFile(b string, k string) {
+func PutFile(b string, k string) {
 
 	_, err := blobs.FPutObject(ctx, b, k, k, minio.PutObjectOptions{
 		ContentType: CONTENT_TYPE_JSON})
@@ -92,10 +109,10 @@ func BlobPutFile(b string, k string) {
 		log.Println(err)
 	}
 
-} // BlobPutFile
+} // PutFile
 
 
-func BlobGet(b string, f string) []byte {
+func Get(b string, f string) []byte {
 
 	o, err := blobs.GetObject(ctx, b, f, minio.GetObjectOptions{})
 
@@ -121,4 +138,4 @@ func BlobGet(b string, f string) []byte {
 
 	return nil
 
-} // BlobGet
+} // Get
