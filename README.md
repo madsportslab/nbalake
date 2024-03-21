@@ -1,3 +1,3 @@
 # nbalake
 
-NBA data lake, stores raw structured and unstructured data to either S3, minio, or other blob store, this data can be used for further refinement.
+nbalake is a library for storing structured and unstructured nba data to either S3, minio, or other blob store.
