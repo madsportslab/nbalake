@@ -16,6 +16,7 @@ const (
 const (
 	BLOB_API_DEFAULT_HOST				= "127.0.0.1"
 	BLOB_API_DEFAULT_PORT       = "9000"
+	BLOB_SERVICE                = "minio"
 )
 
 const (

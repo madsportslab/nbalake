@@ -9,7 +9,7 @@ import (
 
 
 func GetServerAddr() string {
-	return fmt.Sprintf("%s:%s", viper.GetString(BLOB_HOST),
+	return fmt.Sprintf("%s:%s", BLOB_SERVICE,
     viper.GetString(BLOB_PORT))
 } // GetServerAddr
 
