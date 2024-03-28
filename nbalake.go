@@ -4,19 +4,21 @@ import (
 )
 
 const (
-  BLOB_HOST										= "host"
-	BLOB_PORT										= "port"
+  NBALAKE_HOST										= "host"
+	NBALAKE_PORT										= "port"
 )
 
 const (
-	BLOB_AUTH_KEY								= "key"
-	BLOB_AUTH_SECRET						= "secret"
+	NBALAKE                         = "nbalake"
+	NBALAKE_AUTH_KEY								= "key"
+	NBALAKE_AUTH_SECRET							= "secret"
+	NBALAKE_CONF_DIR                = "conf_dir"
 )
 
 const (
-	BLOB_API_DEFAULT_HOST				= "127.0.0.1"
-	BLOB_API_DEFAULT_PORT       = "9000"
-	BLOB_SERVICE                = "minio"
+	NBALAKE_API_DEFAULT_HOST				= "127.0.0.1"
+	NBALAKE_API_DEFAULT_PORT       	= "9000"
+	NBALAKE_SERVICE                	= "minio"
 )
 
 const (

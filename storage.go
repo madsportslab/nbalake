@@ -40,9 +40,9 @@ func ConnectionNew() {
 	parseConfig()
 
 	c, err := minio.New(GetServerAddr(), &minio.Options{
-		Creds:  credentials.NewStaticV4(viper.GetString(BLOB_AUTH_KEY),
-		viper.GetString(BLOB_AUTH_SECRET), ""),
-		Secure: false,
+		Creds:  credentials.NewStaticV4(viper.GetString(
+		NBALAKE_AUTH_KEY), viper.GetString(NBALAKE_AUTH_SECRET),
+		""), Secure: false,
 	})
 
 	if err != nil {
