@@ -64,7 +64,7 @@ func BucketName(y string, id string) string {
 
 func Exists(b string, k string) bool {
   
-	_, err := blobs.GetObject(ctx, b, k,
+	_, err := blobs.StatObject(ctx, b, k,
 		minio.GetObjectOptions{})
 
 	if err != nil {
@@ -171,5 +171,5 @@ func GetLastDate(b string) string {
 	}
 
 	return EMPTY_STRING
-	
+
 } // GetLastDate
