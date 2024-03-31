@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"strings"
 
 	"github.com/spf13/viper"
   "github.com/minio/minio-go/v7"
@@ -139,3 +140,36 @@ func Get(b string, f string) []byte {
 	return nil
 
 } // Get
+
+
+func ParseDate(f string) string {
+
+	if len(f) == 0 {
+		return EMPTY_STRING
+	}
+
+	tokens := strings.Split(f, NBALAKE_DELIMITER)
+
+	if len(tokens) == 0 {
+		return EMPTY_STRING
+	} else {
+		return tokens[0]
+	}
+
+} // ParseDate
+
+
+func GetLastDate(b string) string {
+
+	blobs := List(b)
+
+	for blob := range blobs {
+
+		log.Println(blob.Key)
+		log.Println(ParseDate(blob.Key))
+
+	}
+
+	return EMPTY_STRING
+	
+} // GetLastDate
