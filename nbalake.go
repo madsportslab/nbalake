@@ -36,10 +36,19 @@ const (
 )
 
 const (
+	PREFIX_LEADERS									= "leaders"
+  PREFIX_SEASON										= "season"
+)
+
+const (
+	EXT_PARQUET											= ".parquet"
+)
+
+const (
 	CONTENT_TYPE_JSON								= "application/json"
 )
 
-
 const (
-	EMPTY_STRING										= ""
+	STR_EMPTY												= ""
+	STR_PERIOD                      = "."
 )

@@ -11,8 +11,9 @@ func init() {
 
 } // init
 
-func TestGetLastDate(t *testing.T) {
 
-	t.Log(GetLastDate(BucketName("2023", BUCKET_ANALYTICS)))
+func TestGetLatestLeaders(t *testing.T) {
 
-} // TestGetLastDate
+	t.Log(GetLatestLeaders(BucketName("2023", BUCKET_ANALYTICS)))
+
+} // TestGetLatestLeaders

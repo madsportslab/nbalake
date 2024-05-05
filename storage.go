@@ -68,10 +68,7 @@ func Exists(b string, k string) bool {
 		minio.GetObjectOptions{})
 
 	if err != nil {
-		
-		log.Println(err)
 		return false
-
 	} else {
 		return true
 	}
@@ -145,13 +142,13 @@ func Get(b string, f string) []byte {
 func ParseDate(f string) string {
 
 	if len(f) == 0 {
-		return EMPTY_STRING
+		return STR_EMPTY
 	}
 
 	tokens := strings.Split(f, NBALAKE_DELIMITER)
 
 	if len(tokens) == 0 {
-		return EMPTY_STRING
+		return STR_EMPTY
 	} else {
 		return tokens[0]
 	}
@@ -159,17 +156,42 @@ func ParseDate(f string) string {
 } // ParseDate
 
 
-func GetLastDate(b string) string {
+func GetLatestLeaders(b string) string {
+
+	var key, latest string
 
 	blobs := List(b)
 
 	for blob := range blobs {
 
 		log.Println(blob.Key)
-		log.Println(ParseDate(blob.Key))
+
+		if strings.Contains(blob.Key, PREFIX_LEADERS) {
+
+			tokens := strings.Split(blob.Key, STR_PERIOD)
+
+			d := tokens[0]
+
+			if len(latest) == 0 {
+
+				key 			= blob.Key
+				latest 		= d
+
+			} else {
+		
+				if latest < d {
+
+					key 		= blob.Key
+					latest 	= d
+
+				}				
+
+			}
+	
+		}
 
 	}
 
-	return EMPTY_STRING
+	return key
 
-} // GetLastDate
+} // GetLatestLeaders
